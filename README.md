@@ -1,0 +1,1 @@
+Patches to the [Modern Darktheme Style](https://rawcdn.githack.com/StefGeraets/Trimps.github.io/feature/modern-theme/css/modern.min.css) for [Trimps](https://trimps.github.io/) to be compatible with [AutoTrimps](https://github.com/Zorn192/AutoTrimps)
