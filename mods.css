@@ -3443,7 +3443,7 @@ body {
 }
 
 #tooltipDiv {
-    background-color: #212935;
+    background-color: #212935 !important;
 }
 #tooltipDiv table {
     background-color: #2f3648;
@@ -3581,4 +3581,3 @@ ul.tab li a:hover {
     padding: 4px 8px;
     color: #1a202c;
 }
-
