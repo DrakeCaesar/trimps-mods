@@ -6,30 +6,6 @@ document.head.appendChild(script);
 
 var isSteam = true;
 
-var modernCss =
-    '<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/StefGeraets/Trimps.github.io/feature/modern-theme/css/modern.min.css" />';
-var modernCssPatches =
-    '<link rel="stylesheet" type="text/css" href="./style.css" />';
-
-document.querySelector("head").innerHTML += modernCss;
-document.querySelector("head").innerHTML += modernCssPatches;
-
-function addGlobalStyle(css) {
-    var head, style;
-    head = document.getElementsByTagName("head")[0];
-    if (!head) {
-        return;
-    }
-    style = document.createElement("style");
-    style.type = "text/css";
-    //style.innerHTML = css.replace(/;/g, ' !important;');
-    style.innerHTML = css;
-
-    head.appendChild(style);
-}
-
-//addGlobalStyle(css);
-
 holidayObj.checkActive = function (name) {
     return true;
 };
