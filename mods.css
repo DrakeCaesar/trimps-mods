@@ -3557,10 +3557,28 @@ ul.tab li a:hover {
     box-sizing: border-box;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     border: none !important;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.3pt;
     border-radius: 4px;
     width: fit-content;
 }
+
+#graphFooterLine1 div:empty {
+    flex: 1 !important;
+}
+
+#graphFooterLine1 input:not([type="checkbox"]) {
+    box-sizing: border-box;
+    margin: 0;
+    background: #cbd5e0;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    color: #1a202c;
+}
+
