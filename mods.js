@@ -116,61 +116,45 @@ var css = `
     color: #E2E8F0;
     box-sizing: border-box;
 }
-`
+`;
 
 function addGlobalStyle(css) {
     var head, style;
-    head = document.getElementsByTagName('head')[0];
-    if (!head) { return; }
-    style = document.createElement('style');
-    style.type = 'text/css';
+    head = document.getElementsByTagName("head")[0];
+    if (!head) {
+        return;
+    }
+    style = document.createElement("style");
+    style.type = "text/css";
     //style.innerHTML = css.replace(/;/g, ' !important;');
     style.innerHTML = css;
 
     head.appendChild(style);
 }
 
-addGlobalStyle(css)
+addGlobalStyle(css);
 
-holidayObj.checkActive = function(name){
+holidayObj.checkActive = function (name) {
     return true;
-}
+};
 
-const autoMapBtnStyle =
-    "border: none !important;"+
-    "padding-left: 0px;"+
-    "padding-top: 0px;"+
-    "padding-right: 0px;"+
-    "padding-bottom: 0px;"+
-    "margin-bottom: 2px;"+
-    "font-size: .875rem !important;"+
-    "font-weight: 600;"
-const autoMapLabelStyle =
-    "background: inherit;"+
-    "line-height: 0;"
-
-let checkAutoMapsButton = setInterval(function() {
-    const autoMapBtn = document.querySelector("#autoMapBtn")
-    const autoMapLabel = document.querySelector("#autoMapLabel")
-    if(autoMapBtn && autoMapLabel){
-        autoMapBtn.style.cssText += autoMapBtnStyle
-        autoMapLabel.style.cssText += autoMapLabelStyle
-        clearInterval(checkAutoMapsButton)
-    }
-    return false
-}, 10);
-
-
-
-visualMutations.Pumpkimp.pattern = function(currentArray) {
-    //console.log(currentArray)
+visualMutations.Pumpkimp.pattern = function (currentArray) {
+    // console.log(currentArray)
     var loc = getRandomIntSeeded(game.global.mutationSeed++, 0, 4);
-    var design = [1,2,3,4,5,10,11,12,13,14,15,16,20,21,25,26,30,32,33,34,36,40,41,42,44,45,46,50,51,52,53,54,55,56,60,61,63,65,66,71,72,73,74,75,82,83,84,93];
-    for (var x = 0; x < 100 - loc; x++){
-        //console.log(((currentArray[x + loc] == "" || currentArray[x + loc] == "TrimpmasSnow") && design.indexOf(x)))
-        if ((currentArray[x + loc] == "" || currentArray[x + loc] == "TrimpmasSnow") && design.indexOf(x) != -1) currentArray[x + loc] = "Pumpkimp";
+    var design = [
+        1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 20, 21, 25, 26, 30, 32, 33,
+        34, 36, 40, 41, 42, 44, 45, 46, 50, 51, 52, 53, 54, 55, 56, 60, 61, 63,
+        65, 66, 71, 72, 73, 74, 75, 82, 83, 84, 93,
+    ];
+    for (var x = 0; x < 100 - loc; x++) {
+        // console.log(((currentArray[x + loc] == "" || currentArray[x + loc] == "TrimpmasSnow") && design.indexOf(x)))
+        if (
+            (currentArray[x + loc] == "" ||
+                currentArray[x + loc] == "TrimpmasSnow") &&
+            design.indexOf(x) != -1
+        )
+            currentArray[x + loc] = "Pumpkimp";
     }
-    //console.log(currentArray)
+    // console.log(currentArray)
     return currentArray;
-}
-
+};
