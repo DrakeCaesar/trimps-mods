@@ -10,6 +10,17 @@ holidayObj.checkActive = function (name) {
     return true;
 };
 
+let challangeDescriptionInterval = setInterval(function () {
+    const challangeDescription = document.querySelector(
+        "#specificChallengeDescription"
+    );
+    if (challangeDescription) {
+        challangeDescription.classList.add("niceScroll");
+        clearInterval(challangeDescriptionInterval);
+    }
+    return false;
+}, 1000);
+
 visualMutations.Pumpkimp.pattern = function (currentArray) {
     // console.log(currentArray)
     var loc = getRandomIntSeeded(game.global.mutationSeed++, 0, 4);

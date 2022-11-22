@@ -3581,3 +3581,9 @@ ul.tab li a:hover {
     padding: 4px 8px;
     color: #1a202c;
 }
+
+#specificChallengeDescription {
+    background-color: rgb(45, 55, 72);
+    color: white;
+}
+
