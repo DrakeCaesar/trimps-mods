@@ -3456,8 +3456,15 @@ body {
     color: white;
 }
 
-#equipmentContainer .thingName {
+#equipmentHere .thingName {
     word-spacing: 9999px;
+    font-size: 12px;
+}
+#equipmentHere div[style*="color: red"] {
+    color: #631312 !important;
+}
+#equipmentHere div[style*="border: 2px solid red"] {
+    border: 2px solid #631312 !important;
 }
 
 #settingsTable {
@@ -3587,14 +3594,19 @@ ul.tab li a:hover {
     color: white;
 }
 
-#achievementHover {
+#achievementHover,
+#achievementPopup {
     background: #2d3748;
 }
-
 #achievementHoverDescription,
 #achievementHoverProgress,
-#achievementHoverReward {
+#achievementHoverReward,
+#achievementPopupDescription,
+#achievementPopupReward {
     color: white;
+}
+.achievementBtnClose {
+    color: #de4340;
 }
 
 /*
