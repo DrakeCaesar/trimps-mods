@@ -21,6 +21,13 @@ let challangeDescriptionInterval = setInterval(function () {
     return false;
 }, 1000);
 
+let respecInterval = setInterval(function () {
+    if (game.global.freeTalentRespecs < 3){
+        game.global.freeTalentRespecs = 3;
+    }
+    return false;
+}, 1000);
+
 visualMutations.Pumpkimp.pattern = function (currentArray) {
     // console.log(currentArray)
     var loc = getRandomIntSeeded(game.global.mutationSeed++, 0, 4);
@@ -41,3 +48,34 @@ visualMutations.Pumpkimp.pattern = function (currentArray) {
     // console.log(currentArray)
     return currentArray;
 };
+
+/*
+// Life Preserver based on https://www.reddit.com/r/Trimps/comments/wh0zzi/autotrimps_helper_script_for_life_challenge/
+var exit = false;
+var wait = 0;
+var life = setInterval(function() {
+    if (exit || game.global.mapsActive) return;
+    if (getCurrentWorldCell().mutation == "Living" && wait < 300) {
+        if (game.global.fighting) {
+            console.log('Exiting');
+            exit = true;
+            mapsClicked();
+            setTimeout(function() {
+                mapsClicked();
+                exit = false;
+            }, 500);
+        } else {
+            console.log('Waiting');
+            wait++;
+        }
+    } else if (!game.global.fighting && missingTrimps.valueOf() == '0') {
+        console.log('Fighting');
+        fightManual();
+        if (wait >= 300) {
+            setTimeout(function() {
+                wait = 0
+            }, 3000);
+        }
+    }
+}, 90);
+*/
