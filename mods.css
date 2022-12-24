@@ -3609,6 +3609,10 @@ ul.tab li a:hover {
     color: #de4340;
 }
 
+.heirloomRare5 {
+    color: #7F0037;
+}
+
 /*
 #achievementHoverIconContainer span {
     text-shadow: 0 0 10px #999, 0 0 20px #999, 0 0 30px, 0 0 40px, 0 0 50px,
