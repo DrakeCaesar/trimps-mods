@@ -3608,14 +3608,26 @@ ul.tab li a:hover {
 .achievementBtnClose {
     color: #de4340;
 }
-
+/*
 .heirloomRare5 {
     color: #7F0037;
 }
-
+*/
 /*
 #achievementHoverIconContainer span {
     text-shadow: 0 0 10px #999, 0 0 20px #999, 0 0 30px, 0 0 40px, 0 0 50px,
         0 0 60px, 0 0 70px !important;
 }
 */
+
+#fluffyLevelBreakdown > tbody > tr:nth-child(even) {
+    background: inherit;
+}
+
+
+#fluffyLevelBreakdown > tbody > tr.fluffyRowComplete {
+    font-weight: 500;
+    background: #13151e;
+    color: #718096;
+}
+
