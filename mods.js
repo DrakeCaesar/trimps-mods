@@ -7,26 +7,27 @@ document.head.appendChild(script);
 var isSteam = true;
 
 holidayObj.checkActive = function (name) {
-    return true;
+  return true;
 };
 
 let challangeDescriptionInterval = setInterval(function () {
-    const challangeDescription = document.querySelector(
-        "#specificChallengeDescription"
-    );
-    if (challangeDescription) {
-        challangeDescription.classList.add("niceScroll");
-        clearInterval(challangeDescriptionInterval);
-    }
-    return false;
+  const challangeDescription = document.querySelector(
+    "#specificChallengeDescription",
+  );
+  if (challangeDescription) {
+    challangeDescription.classList.add("niceScroll");
+    clearInterval(challangeDescriptionInterval);
+  }
+  return false;
 }, 1000);
 
 let respecInterval = setInterval(function () {
-    if (game.global.freeTalentRespecs < 3){
-        game.global.freeTalentRespecs = 3;
-    }
-    return false;
+  if (game.global.freeTalentRespecs < 3) {
+    game.global.freeTalentRespecs = 3;
+  }
+  return false;
 }, 1000);
+
 /*
 visualMutations.Pumpkimp.pattern = function (currentArray) {
     // console.log(currentArray)
