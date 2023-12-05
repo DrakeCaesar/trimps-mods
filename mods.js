@@ -6,10 +6,12 @@ document.head.appendChild(script);
 
 var isSteam = true;
 
+// Enables all holiday events at the same time
 holidayObj.checkActive = function (name) {
   return true;
 };
 
+// Replaces a scroll bar with a nice one
 let challengeDescriptionInterval = setInterval(function () {
   const challengeDescription = document.querySelector(
     "#specificChallengeDescription",
@@ -21,6 +23,7 @@ let challengeDescriptionInterval = setInterval(function () {
   return false;
 }, 1000);
 
+// Makes respecs free
 let respecInterval = setInterval(function () {
   if (game.global.freeTalentRespecs < 3) {
     game.global.freeTalentRespecs = 3;
