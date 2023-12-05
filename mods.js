@@ -10,13 +10,13 @@ holidayObj.checkActive = function (name) {
   return true;
 };
 
-let challangeDescriptionInterval = setInterval(function () {
-  const challangeDescription = document.querySelector(
+let challengeDescriptionInterval = setInterval(function () {
+  const challengeDescription = document.querySelector(
     "#specificChallengeDescription",
   );
-  if (challangeDescription) {
-    challangeDescription.classList.add("niceScroll");
-    clearInterval(challangeDescriptionInterval);
+  if (challengeDescription) {
+    challengeDescription.classList.add("niceScroll");
+    clearInterval(challengeDescriptionInterval);
   }
   return false;
 }, 1000);

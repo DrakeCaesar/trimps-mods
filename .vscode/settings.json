@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "dfa-dark"
+  "workbench.colorTheme": "dfa-dark",
+  "cSpell.words": ["respec", "Respecs"]
 }
