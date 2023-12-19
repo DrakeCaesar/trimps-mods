@@ -21,8 +21,12 @@ const observer = new MutationObserver((mutations) => {
       var rep = document.querySelector(
         "#repeatVoidsContainer[style='display: block;']",
       );
+      const zoneText = document
+        .querySelector("#worldNumber")
+        .innerText.split(" ");
+      const zone = parseInt(zoneText[zoneText.length - 1], 10);
 
-      if (widthPercentage < 80 && rep == null) {
+      if (widthPercentage < 80 && zone <= 40 && rep == null) {
         document
           .querySelector("#mapsBtn[style*='display: block'] #mapsBtnText")
           .click();
