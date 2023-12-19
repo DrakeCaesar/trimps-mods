@@ -27,9 +27,12 @@ const observer = new MutationObserver((mutations) => {
       const zone = parseInt(zoneText[zoneText.length - 1], 10);
 
       if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
-        document
-          .querySelector("#mapsBtn[style*='display: block'] #mapsBtnText")
-          ?.click();
+        const mapsBtnText = document.querySelector(
+          "#mapsBtn[style*='display: block'] #mapsBtnText",
+        );
+        if (mapsBtnText) {
+          mapsBtnText.click();
+        }
       }
     }
   }
