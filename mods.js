@@ -18,7 +18,7 @@ const observer = new MutationObserver((mutations) => {
     if (mutation.type === "attributes" && mutation.attributeName === "style") {
       const widthValue = targetElement.style.width;
       const widthPercentage = parseFloat(widthValue);
-      var rep = document.querySelector(
+      const voidMap = document.querySelector(
         "#repeatVoidsContainer[style='display: block;']",
       );
       const zoneText = document
@@ -26,10 +26,10 @@ const observer = new MutationObserver((mutations) => {
         .innerText.split(" ");
       const zone = parseInt(zoneText[zoneText.length - 1], 10);
 
-      if (widthPercentage < 80 && zone <= 40 && rep == null) {
+      if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
         document
           .querySelector("#mapsBtn[style*='display: block'] #mapsBtnText")
-          .click();
+          ?.click();
       }
     }
   }
