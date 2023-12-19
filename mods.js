@@ -11,25 +11,47 @@ holidayObj.checkActive = function (name) {
   return true;
 };
 
-// Replaces a scroll bar with a nice one
-let challengeDescriptionInterval = setInterval(function () {
-  const challengeDescription = document.querySelector(
-    "#specificChallengeDescription",
-  );
-  if (challengeDescription) {
-    challengeDescription.classList.add("niceScroll");
-    clearInterval(challengeDescriptionInterval);
-  }
-  return false;
-}, 1000);
+//Bubble
+const targetElement = document.querySelector("#energyShield");
+const observer = new MutationObserver((mutations) => {
+  for (let mutation of mutations) {
+    if (mutation.type === "attributes" && mutation.attributeName === "style") {
+      const widthValue = targetElement.style.width;
+      const widthPercentage = parseFloat(widthValue);
+      var rep = document.querySelector(
+        "#repeatVoidsContainer[style='display: block;']",
+      );
 
-// Makes respecs free
-let respecInterval = setInterval(function () {
-  if (game.global.freeTalentRespecs < 3) {
-    game.global.freeTalentRespecs = 3;
+      if (widthPercentage < 80 && rep == null) {
+        document
+          .querySelector("#mapsBtn[style*='display: block'] #mapsBtnText")
+          .click();
+      }
+    }
   }
-  return false;
-}, 1000);
+});
+const config = { attributes: true, attributeFilter: ["style"] };
+observer.observe(targetElement, config);
+
+// // Replaces a scroll bar with a nice one
+// let challengeDescriptionInterval = setInterval(function () {
+//   const challengeDescription = document.querySelector(
+//     "#specificChallengeDescription",
+//   );
+//   if (challengeDescription) {
+//     challengeDescription.classList.add("niceScroll");
+//     clearInterval(challengeDescriptionInterval);
+//   }
+//   return false;
+// }, 1000);
+
+// // Makes respecs free
+// let respecInterval = setInterval(function () {
+//   if (game.global.freeTalentRespecs < 3) {
+//     game.global.freeTalentRespecs = 3;
+//   }
+//   return false;
+// }, 1000);
 
 /*
 visualMutations.Pumpkimp.pattern = function (currentArray) {
