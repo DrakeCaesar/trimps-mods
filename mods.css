@@ -3629,3 +3629,7 @@ ul.tab li a:hover {
   background: #13151e;
   color: #718096;
 }
+
+#XXXtooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
+  display: none !important;
+}

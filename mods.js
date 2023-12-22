@@ -11,34 +11,80 @@ holidayObj.checkActive = function (name) {
   return true;
 };
 
-//Bubble
-const targetElement = document.querySelector("#energyShield");
-const observer = new MutationObserver((mutations) => {
-  for (let mutation of mutations) {
-    if (mutation.type === "attributes" && mutation.attributeName === "style") {
-      const widthValue = targetElement.style.width;
-      const widthPercentage = parseFloat(widthValue);
-      const voidMap = document.querySelector(
-        "#repeatVoidsContainer[style='display: block;']",
-      );
-      const zoneText = document
-        .querySelector("#worldNumber")
-        .innerText.split(" ");
-      const zone = parseInt(zoneText[zoneText.length - 1], 10);
+// //Bubble
+// const targetElement = document.querySelector("#energyShield");
+// const observer = new MutationObserver((mutations) => {
+//   for (let mutation of mutations) {
+//     if (mutation.type === "attributes" && mutation.attributeName === "style") {
+//       const widthValue = targetElement.style.width;
+//       const widthPercentage = parseFloat(widthValue);
+//       const voidMap = document.querySelector(
+//         "#repeatVoidsContainer[style='display: block;']",
+//       );
+//       const zoneText = document
+//         .querySelector("#worldNumber")
+//         .innerText.split(" ");
+//       const zone = parseInt(zoneText[zoneText.length - 1], 10);
 
-      if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
-        const mapsBtnText = document.querySelector(
-          "#mapsBtn[style*='display: block'] #mapsBtnText",
-        );
-        if (mapsBtnText) {
-          mapsBtnText.click();
-        }
-      }
-    }
+//       if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
+//         const mapsBtnText = document.querySelector(
+//           "#mapsBtn[style*='display: block'] #mapsBtnText",
+//         );
+//         if (mapsBtnText) {
+//           mapsBtnText.click();
+//         }
+//       }
+//     }
+//   }
+// });
+// const config = { attributes: true, attributeFilter: ["style"] };
+// observer.observe(targetElement, config);
+
+// Function to move an element to be the last child of its parent
+function moveToLastChild(selector) {
+  var element = document.querySelector(selector);
+  if (element && element.parentElement) {
+    element.parentElement.appendChild(element);
+  }
+}
+// Function to check if both elements exist
+function doElementsExist(selectors) {
+  return selectors.every(
+    (selector) => document.querySelector(selector) !== null,
+  );
+}
+// Selectors of the elements to monitor
+const selectors2 = ["#settingsTable", "#autoTrimpsTabBarMenu"];
+// Create a MutationObserver to monitor the DOM for changes
+const observer2 = new MutationObserver(function (mutations) {
+  if (doElementsExist(selectors2)) {
+    // If both elements exist, move them and disconnect the observer
+    selectors2.forEach((selector) => moveToLastChild(selector));
+    observer2.disconnect();
   }
 });
-const config = { attributes: true, attributeFilter: ["style"] };
-observer.observe(targetElement, config);
+// Start observing the document body for childList and subtree changes
+observer2.observe(document.body, { childList: true, subtree: true });
+// Check initially if the elements already exist
+if (doElementsExist(selectors2)) {
+  selectors2.forEach((selector) => moveToLastChild(selector));
+  observer2.disconnect();
+}
+
+// const selectors3 = [
+//   '#tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"]',
+// ];
+// const observer3 = new MutationObserver(function (mutations) {
+//   if (doElementsExist(selectors3)) {
+//     // If both elements exist, move them and disconnect the observer
+//     selectors3.forEach((selector) =>
+//       document.querySelector(selector).setAttribute("style", "display: none;"),
+//     );
+//     observer3.disconnect();
+//   }
+// });
+
+// observer3.observe(document.body, { childList: true, subtree: true });
 
 // // Replaces a scroll bar with a nice one
 // let challengeDescriptionInterval = setInterval(function () {
