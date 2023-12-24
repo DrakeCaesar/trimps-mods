@@ -11,35 +11,6 @@ holidayObj.checkActive = function (name) {
   return true;
 };
 
-// //Bubble
-// const targetElement = document.querySelector("#energyShield");
-// const observer = new MutationObserver((mutations) => {
-//   for (let mutation of mutations) {
-//     if (mutation.type === "attributes" && mutation.attributeName === "style") {
-//       const widthValue = targetElement.style.width;
-//       const widthPercentage = parseFloat(widthValue);
-//       const voidMap = document.querySelector(
-//         "#repeatVoidsContainer[style='display: block;']",
-//       );
-//       const zoneText = document
-//         .querySelector("#worldNumber")
-//         .innerText.split(" ");
-//       const zone = parseInt(zoneText[zoneText.length - 1], 10);
-
-//       if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
-//         const mapsBtnText = document.querySelector(
-//           "#mapsBtn[style*='display: block'] #mapsBtnText",
-//         );
-//         if (mapsBtnText) {
-//           mapsBtnText.click();
-//         }
-//       }
-//     }
-//   }
-// });
-// const config = { attributes: true, attributeFilter: ["style"] };
-// observer.observe(targetElement, config);
-
 // Function to move an element to be the last child of its parent
 function moveToLastChild(selector) {
   var element = document.querySelector(selector);
@@ -70,6 +41,35 @@ if (doElementsExist(selectors2)) {
   selectors2.forEach((selector) => moveToLastChild(selector));
   observer2.disconnect();
 }
+
+// //Bubble
+// const targetElement = document.querySelector("#energyShield");
+// const observer = new MutationObserver((mutations) => {
+//   for (let mutation of mutations) {
+//     if (mutation.type === "attributes" && mutation.attributeName === "style") {
+//       const widthValue = targetElement.style.width;
+//       const widthPercentage = parseFloat(widthValue);
+//       const voidMap = document.querySelector(
+//         "#repeatVoidsContainer[style='display: block;']",
+//       );
+//       const zoneText = document
+//         .querySelector("#worldNumber")
+//         .innerText.split(" ");
+//       const zone = parseInt(zoneText[zoneText.length - 1], 10);
+
+//       if (widthPercentage < 80 && zone <= 40 && voidMap === null) {
+//         const mapsBtnText = document.querySelector(
+//           "#mapsBtn[style*='display: block'] #mapsBtnText",
+//         );
+//         if (mapsBtnText) {
+//           mapsBtnText.click();
+//         }
+//       }
+//     }
+//   }
+// });
+// const config = { attributes: true, attributeFilter: ["style"] };
+// observer.observe(targetElement, config);
 
 // const selectors3 = [
 //   '#tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"]',

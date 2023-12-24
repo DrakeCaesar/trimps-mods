@@ -3633,3 +3633,23 @@ ul.tab li a:hover {
 #XXXtooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
   display: none !important;
 }
+
+#extraHeirlooms {
+  overflow: auto !important;
+}
+
+#determinedBuff {
+  padding: 3px 7px;
+}
+
+.badge {
+  font-size: 0.8em !important;
+}
+
+.battleStatsTitle {
+  padding-bottom: 60px;
+}
+
+#badGuyName {
+  display: block;
+}
