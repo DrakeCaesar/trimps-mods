@@ -1,4 +1,4 @@
-import { doElementsExist, moveToLastChild } from "./common";
+import { doElementsExist, moveToLastChild } from "./utils";
 
 export function moveSettings() {
   // Selectors of the elements to monitor

@@ -1,5 +1,5 @@
 
-export function bubble() {
+export function BubléChallenge() {
   const targetElement: HTMLElement = document.querySelector("#energyShield") as HTMLElement;
   const observer = new MutationObserver((mutations) => {
     for (let mutation of mutations) {

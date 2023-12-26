@@ -1,4 +1,4 @@
-import { moveSpansAfterParent } from './badges';
+import { moveBadges } from './badges';
 import { moveSettings } from "./settings";
 
 var script = document.createElement("script");
@@ -16,7 +16,7 @@ holidayObj.checkActive = function () {
 };
 
 moveSettings();
-moveSpansAfterParent();
+moveBadges();
 
 
 
