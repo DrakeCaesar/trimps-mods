@@ -4,32 +4,33 @@ export function moveSpansAfterParent() {
   const badGuyNameElement = document.getElementById("badGuyName");
 
   if (badGuyNameElement) {
+
+    const modifiedBadgeElements = document.querySelectorAll("span.modifiedBadge");
+    modifiedBadgeElements.forEach((element) => {
+      element.remove();
+    });
+
     const spanElements = badGuyNameElement.querySelectorAll("span.badge");
+    spanElements.forEach((span) => {
+      if (parent !== null && badGuyNameElement.parentNode !== null) {
+        const clonedSpan = span.cloneNode(true) as HTMLElement;
+        clonedSpan.classList.add("modifiedBadge");
+        
+        //the following line causes infinite loop in observer
+        badGuyNameElement.parentNode.insertBefore(clonedSpan, badGuyNameElement.nextSibling);
+      }
+    });
 
-    if (spanElements.length !== 0) {
-      //remove elements with modified badges
-      const modifiedBadgeElements = document.querySelectorAll("span.modifiedBadge");
-      modifiedBadgeElements.forEach((element) => {
-        element.remove();
-      });
 
-      spanElements.forEach((span) => {
-        if (parent !== null && badGuyNameElement.parentNode !== null) {
-          badGuyNameElement.removeChild(span);
-          span.classList.add("modifiedBadge");
-          badGuyNameElement.parentNode.insertBefore(span, badGuyNameElement.nextSibling);
-        }
-      });
-    }
   }
 }
 
 const observer = new MutationObserver(moveSpansAfterParent);
 
-const observerConfig3 = {
+const observerConfig = {
   childList: true,
   subtree: true,
 };
 
-observer.observe(document.body, observerConfig3);
+observer.observe(document.body, observerConfig);
 
