@@ -1,31 +1,33 @@
 {
-   "compilerOptions": {
-      "target": "ESNext",
-      "module": "ESNext",
-      "moduleResolution": "node",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
 
-      "allowJs": true,
-      "noEmit": true,
-      "removeComments": false,
+    "allowJs": true,
+    "noEmit": true,
+    "removeComments": false,
 
-      "strict": true,
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "noImplicitReturns": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
 
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
 
-      "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true,
 
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
-      "skipLibCheck": true,
+    "skipLibCheck": true,
 
-      "typeRoots": ["./node_modules/@types"],
-   }
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "exclude": ["./node_modules", "./mods.js"],
+  "include": ["./src/*.ts"]
 }
