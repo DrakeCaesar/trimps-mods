@@ -6,36 +6,44 @@ document.head.appendChild(script);
 
 var isSteam = true;
 
+declare var holidayObj: any;
+
+
 // Enables all holiday events at the same time
-holidayObj.checkActive = function (name) {
+holidayObj.checkActive = function () {
   return true;
 };
 
 // Function to move an element to be the last child of its parent
-function moveToLastChild(selector) {
+function moveToLastChild(selector: string) {
   var element = document.querySelector(selector);
   if (element && element.parentElement) {
     element.parentElement.appendChild(element);
   }
 }
+
 // Function to check if both elements exist
-function doElementsExist(selectors) {
+function doElementsExist(selectors: string[]) {
   return selectors.every(
     (selector) => document.querySelector(selector) !== null,
   );
 }
+
 // Selectors of the elements to monitor
 const selectors2 = ["#settingsTable", "#autoTrimpsTabBarMenu"];
+
 // Create a MutationObserver to monitor the DOM for changes
-const observer2 = new MutationObserver(function (mutations) {
+const observer2 = new MutationObserver(function () {
   if (doElementsExist(selectors2)) {
     // If both elements exist, move them and disconnect the observer
     selectors2.forEach((selector) => moveToLastChild(selector));
     observer2.disconnect();
   }
 });
+
 // Start observing the document body for childList and subtree changes
 observer2.observe(document.body, { childList: true, subtree: true });
+
 // Check initially if the elements already exist
 if (doElementsExist(selectors2)) {
   selectors2.forEach((selector) => moveToLastChild(selector));
@@ -70,6 +78,32 @@ if (doElementsExist(selectors2)) {
 // });
 // const config = { attributes: true, attributeFilter: ["style"] };
 // observer.observe(targetElement, config);
+
+// // Your new MutationObserver code for moving elements
+// function moveSpansAfterParent() {
+//   const badGuyNameElement = document.getElementById("badGuyName");
+
+//   if (badGuyNameElement) {
+//     const spanElements = badGuyNameElement.querySelectorAll("span.badge");
+
+//     spanElements.forEach((span) => {
+//       const parent = span.parentElement;
+//       if (parent) {
+//         span.setAttribute("style", "display: none;");
+//         parent.parentNode.insertBefore(span, parent.nextSibling);
+//       }
+//     });
+//   }
+// }
+
+// const observer3 = new MutationObserver(moveSpansAfterParent);
+
+// const observerConfig3 = {
+//   childList: true,
+//   subtree: true,
+// };
+
+// observer3.observe(document.body, observerConfig3);
 
 // const selectors3 = [
 //   '#tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"]',
