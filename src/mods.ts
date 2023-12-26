@@ -17,6 +17,7 @@ holidayObj.checkActive = function () {
 
 moveSettings();
 moveBadges();
+// BubléChallenge();
 
 
 
