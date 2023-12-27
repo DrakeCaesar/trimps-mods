@@ -3630,7 +3630,11 @@ ul.tab li a:hover {
   color: #718096;
 }
 
-#XXXtooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
+#tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
+  display: none !important;
+}
+
+#tooltipDiv.tooltipExtraNone[style="display: block; left: 33.75%; top: 25%;"] {
   display: none !important;
 }
 
@@ -3638,18 +3642,21 @@ ul.tab li a:hover {
   overflow: auto !important;
 }
 
+
+
+
 #determinedBuff {
   padding: 3px 7px;
 }
-
 .badge {
   font-size: 0.8em !important;
 }
-
-.battleStatsTitle {
-  padding-bottom: 60px;
+#goodGuyCol > div:nth-child(1) {
+  height: 60px;
 }
-
+#badGuyCol .battleStatsTitle {
+  padding-bottom: 53px;
+}
 #badGuyName {
   display: block;
 }

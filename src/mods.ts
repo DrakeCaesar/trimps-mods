@@ -1,4 +1,4 @@
-import { moveBadges } from './badges';
+import { moveBadges } from "./badges";
 import { moveSettings } from "./settings";
 
 var script = document.createElement("script");

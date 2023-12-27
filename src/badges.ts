@@ -28,12 +28,16 @@ export function moveBadges() {
     const spanElements2 = goodGuyNameElement.querySelectorAll("span.badge");
     spanElements2.forEach((span) => {
       if (parent !== null && goodGuyNameElement.parentNode !== null) {
-        const clonedSpan = span.cloneNode(true) as HTMLElement;
+        const clonedSpan = span.parentNode?.cloneNode(false) as HTMLElement;
+        const badge = span.parentNode?.querySelector(".badge")?.cloneNode(true) as HTMLElement;
+
         (span as HTMLElement).style.display = "none";
         (clonedSpan as HTMLElement).style.display = "inline-block";
         clonedSpan.classList.add("modifiedBadge");
-
-        goodGuyNameElement.parentNode.insertBefore(clonedSpan, goodGuyNameElement.nextSibling);
+        badge.style.display = "inline-block";
+        clonedSpan.appendChild(badge);
+        goodGuyNameElement.parentNode.appendChild(clonedSpan);
+        goodGuyNameElement.style.display = "block";
       }
     });
 
