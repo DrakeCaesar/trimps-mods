@@ -10,25 +10,21 @@ export function spireAssault(lastPreset: number = 0): number {
   const bResist = parseInt(resistances[2]);
   const sResist = parseInt(resistances[3]);
 
-  let color = "black";
+  let minResist = Math.min(pResist, bResist, sResist);
+  let presetsToColor = [];
+  if (pResist === minResist) {
+    presetsToColor.push({ preset: 1, color: "green" });
+  }
+  if (bResist === minResist) {
+    presetsToColor.push({ preset: 2, color: "red" });
+  }
+  if (sResist === minResist) {
+    presetsToColor.push({ preset: 3, color: "yellow" });
+  }
+  presetsToColor.forEach(({ preset, color }) => {
+    resistancesElementText[preset].style.color = color;
+  });
 
-  if (pResist <= bResist && pResist <= sResist) {
-    newPreset = 1;
-    color = "green";
-  }
-  else if (bResist <= pResist && bResist <= sResist) {
-    newPreset = 2;
-    color = "red";
-  }
-  else if (sResist <= pResist && sResist <= bResist) {
-    newPreset = 3;
-    color = "yellow";
-  }
-  else {
-    newPreset = 3;
-  }
-
-  resistancesElementText[newPreset].style.color = color;
 
   const presetName = ["", "Poison", "Bleed", "Shock"]
   if (lastPreset !== newPreset) {
