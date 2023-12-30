@@ -2,6 +2,7 @@ export function spireAssault(lastPreset: number = 0): number {
   var newPreset: number = 0;
 
   const resistancesElement = document.querySelector(".autoStats:nth-child(2) .autoStatsBreakup:nth-child(2)") as HTMLElement;
+  const resistancesElementText = document.querySelectorAll(".autoStats:nth-child(2) .autoStatsBreakup:nth-child(2) b") as NodeListOf<HTMLElement>;
 
   const resistances: string[] = resistancesElement.innerText.replace(/[^0-9 ]/g, "").split(" ").filter(x => x !== "")
 
@@ -9,19 +10,25 @@ export function spireAssault(lastPreset: number = 0): number {
   const bResist = parseInt(resistances[2]);
   const sResist = parseInt(resistances[3]);
 
-  if (pResist > bResist && pResist > sResist) {
+  let color = "black";
+
+  if (pResist <= bResist && pResist <= sResist) {
     newPreset = 1;
+    color = "green";
   }
-  else if (bResist > pResist && bResist > sResist) {
+  else if (bResist <= pResist && bResist <= sResist) {
     newPreset = 2;
+    color = "red";
   }
-  else if (sResist > pResist && sResist > bResist) {
+  else if (sResist <= pResist && sResist <= bResist) {
     newPreset = 3;
+    color = "yellow";
   }
   else {
     newPreset = 3;
   }
 
+  resistancesElementText[newPreset].style.color = color;
 
   const presetName = ["", "Poison", "Bleed", "Shock"]
   if (lastPreset !== newPreset) {
@@ -42,14 +49,12 @@ export function spireAssault(lastPreset: number = 0): number {
 export async function observeResistancesElement(): Promise<void> {
   let lastPreset = 0;
 
-  let resistanceElement = document.querySelector('#autoBattleTrimpAttackBar');
+  let resistanceElement = document.querySelector('#tooltipDiv');
 
   while (!resistanceElement) {
-    resistanceElement = document.querySelector('#autoBattleTrimpAttackBar');
+    resistanceElement = document.querySelector('#tooltipDiv');
     await new Promise(r => setTimeout(r, 100));
   }
-  console.log("Found resistanceElement");
-
 
   const callback = function (mutationsList: MutationRecord[]) {
     if (resistanceElement === null) {
@@ -62,7 +67,7 @@ export async function observeResistancesElement(): Promise<void> {
         try {
           lastPreset = spireAssault(lastPreset);
         } catch (error) {
-          console.error(error);
+
         }
       }
     }
