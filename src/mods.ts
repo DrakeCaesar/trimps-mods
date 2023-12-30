@@ -1,4 +1,6 @@
-import { moveBadges } from "./badges";
+import { BubléChallenge } from "./bubble";
+import { hideTooltip } from "./hideTooltip";
+import { observeResistancesElement } from "./sa";
 import { moveSettings } from "./settings";
 
 var script = document.createElement("script");
@@ -16,8 +18,13 @@ holidayObj.checkActive = function () {
 };
 
 moveSettings();
-moveBadges();
-// BubléChallenge();
+// autotrimpsTabs();
+// moveBadges();
+const buble: boolean = false;
+if (buble)
+  BubléChallenge();
 
+hideTooltip();
+observeResistancesElement();
 
 

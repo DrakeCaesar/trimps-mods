@@ -9,11 +9,13 @@ export function BubléChallenge() {
         const voidMapElement = document.querySelector(
           "#repeatVoidsContainer[style='display: block;']",
         );
-        const zoneTextElement = document.querySelector("#worldNumber") as HTMLElement;
-        const zoneText = zoneTextElement.innerText.split(" ");
-        const zone = parseInt(zoneText[zoneText.length - 1], 10);
 
-        if (widthPercentage < 80 && zone <= 40 && voidMapElement === null) {
+        // const zoneTextElement = document.querySelector("#worldNumber") as HTMLElement;
+        // const zoneText = zoneTextElement.innerText.split(" ");
+        // const zone = parseInt(zoneText[zoneText.length - 1], 10);
+        // if (widthPercentage < 80 && zone <= 40 && voidMapElement === null) {
+
+        if (widthPercentage < 80 && voidMapElement === null) {
           const mapsBtnText = document.querySelector(
             "#mapsBtn[style*='display: block'] #mapsBtnText",
           ) as HTMLElement;

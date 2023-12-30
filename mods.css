@@ -3630,7 +3630,7 @@ ul.tab li a:hover {
   color: #718096;
 }
 
-#tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
+/* #tooltipDiv.tooltipExtraNone[style="display: block; top: 25%; left: 33.75%;"] {
   display: none !important;
 }
 
@@ -3638,14 +3638,12 @@ ul.tab li a:hover {
   display: none !important;
 }
 
+
 #extraHeirlooms {
   overflow: auto !important;
-}
+} */
 
-
-
-
-#determinedBuff {
+/* #determinedBuff {
   padding: 3px 7px;
 }
 .badge {
@@ -3659,4 +3657,48 @@ ul.tab li a:hover {
 }
 #badGuyName {
   display: block;
+} */
+
+#settingsRow {
+  opacity: 0.85;
+}
+
+#boneWrapper {
+  background: #1a202c;
+  color: white;
+}
+
+#boneFlavorRow,
+#boneTitleContainer,
+#boneOwnedContainer,
+#bonesOwned {
+  color: white;
+}
+
+#boneOwnedContainer,
+.miscDesc {
+  background: #2d3748;
+}
+
+#boneBuyRow > div {
+  background: #2d3748;
+  border-right: 2px solid #1a202c;
+}
+
+.autoBattleBarHolder div {
+  background: rgb(67, 67, 77) !important;
+  border: 1px solid #1a202c !important;
+}
+
+#tooltipDiv {
+  opacity: 0.85;
+}
+
+.autoItemEquipped {
+  font-weight: bold;
+  color: #42bd7f !important;
+}
+
+.cellColorBeaten {
+  background: #48bb78 !important;
 }
