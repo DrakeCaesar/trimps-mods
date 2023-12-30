@@ -15,12 +15,22 @@ export function BubléChallenge() {
         // const zone = parseInt(zoneText[zoneText.length - 1], 10);
         // if (widthPercentage < 80 && zone <= 40 && voidMapElement === null) {
 
-        if (widthPercentage < 80 && voidMapElement === null) {
+        if (widthPercentage < 40 && voidMapElement === null) {
           const mapsBtnText = document.querySelector(
             "#mapsBtn[style*='display: block'] #mapsBtnText",
           ) as HTMLElement;
           if (mapsBtnText) {
             mapsBtnText.click();
+            setTimeout(() => {
+              const continueBtn = document.querySelector("#selectMapBtn") as HTMLElement;
+              console
+              if (continueBtn && continueBtn.innerText == "CONTINUE") {
+                continueBtn.click();
+              }
+              else {
+                mapsBtnText.click();
+              }
+            }, 1);
           }
         }
       }

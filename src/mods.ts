@@ -20,7 +20,7 @@ holidayObj.checkActive = function () {
 moveSettings();
 // autotrimpsTabs();
 // moveBadges();
-const buble: boolean = false;
+const buble: boolean = true;
 if (buble)
   BubléChallenge();
 

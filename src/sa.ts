@@ -24,7 +24,9 @@ export function spireAssault(lastPreset: number = 0): number {
   presetsToColor.forEach(({ preset, color }) => {
     resistancesElementText[preset].style.color = color;
   });
-
+  newPreset = presetsToColor[0].preset;
+  //make italics
+  resistancesElementText[newPreset].style.fontStyle = "italic";
 
   const presetName = ["", "Poison", "Bleed", "Shock"]
   if (lastPreset !== newPreset) {
@@ -60,11 +62,13 @@ export async function observeResistancesElement(): Promise<void> {
 
     for (let mutation of mutationsList) {
       if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+        observer.disconnect();
         try {
           lastPreset = spireAssault(lastPreset);
         } catch (error) {
 
         }
+        observer.observe(resistanceElement, { attributes: true, subtree: true });
       }
     }
 
