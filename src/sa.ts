@@ -67,11 +67,7 @@ export async function observeResistancesElement(): Promise<void> {
 
           lastPreset = spireAssault(lastPreset);
         } catch (error) {
-          try {
-            (document.querySelector("#autoBattleA") as HTMLElement).click();
-          } catch (error) {
 
-          }
         }
         observer.observe(resistanceElement, { attributes: true, subtree: true });
       }
@@ -82,6 +78,12 @@ export async function observeResistancesElement(): Promise<void> {
   const observer = new MutationObserver(callback);
 
   observer.observe(resistanceElement, { attributes: true, subtree: true });
+
+  while (true) {
+    resistanceElement = document.querySelector('#tooltipDiv');
+    (document.querySelector("#autoBattleA") as HTMLElement).click();
+    await new Promise(r => setTimeout(r, 1000));
+  }
 }
 
 export function refresh() {
