@@ -29,21 +29,29 @@ export function zoomListener(): void {
   });
 }
 
-function zoomIn(): void {
+function zoom(change: number): void {
   const body = document.body as HTMLBodyElement;
   let zoom = body.style.getPropertyValue("zoom");
   if (zoom === null || zoom === '') {
     zoom = '100%';
   }
-  
-  
-  console.log('zoomIn');
+  let zoomValue = parseInt(zoom.replace('%', ''));
+  zoomValue += change;
+  body.style.setProperty("zoom", zoomValue + '%');
+  console.log('zoomOut');
   console.log(zoom);
 }
 
-function zoomOut(): void {
-  console.log('zoomOut');
+function zoomIn(): void {
+  zoom(10);
 }
+
+function zoomOut(): void {
+  zoom(-10);
+}
+
 function zoomReset(): void {
+  const body = document.body as HTMLBodyElement;
+  body.style.setProperty("zoom", '100%');
   console.log('zoomReset');
 }
