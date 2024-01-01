@@ -2,6 +2,7 @@ import { BubléChallenge } from "./bubble";
 import { hideTooltip } from "./hideTooltip";
 import { observeResistancesElement } from "./sa";
 import { moveSettings } from "./settings";
+import { zoomListener } from "./zoom";
 
 var script = document.createElement("script");
 script.id = "AutoTrimps-Zek";
@@ -20,11 +21,12 @@ holidayObj.checkActive = function () {
 moveSettings();
 // autotrimpsTabs();
 // moveBadges();
-const buble: boolean = true;
+const buble: boolean = false;
 if (buble)
   BubléChallenge();
 
 hideTooltip();
 observeResistancesElement();
-
+// observeTime();
+zoomListener();
 

@@ -64,6 +64,7 @@ export async function observeResistancesElement(): Promise<void> {
       if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
         observer.disconnect();
         try {
+
           lastPreset = spireAssault(lastPreset);
         } catch (error) {
 
@@ -79,3 +80,46 @@ export async function observeResistancesElement(): Promise<void> {
   observer.observe(resistanceElement, { attributes: true, subtree: true });
 }
 
+export function refresh() {
+  const button = document.querySelector("#confirmTooltipBtn") as HTMLElement;
+
+  if (!button) {
+    return;
+  }
+
+  if (button.innerHTML == "Refresh") {
+    button.click();
+  }
+}
+export async function observeTime(): Promise<void> {
+
+  let timeElement = document.querySelector('#portalTime');
+
+  while (!timeElement) {
+    timeElement = document.querySelector('#portalTime');
+    await new Promise(r => setTimeout(r, 100));
+  }
+
+  const callback = function (mutationsList: MutationRecord[]) {
+    if (timeElement === null) {
+      return;
+    }
+    //observe innerText
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'characterData') {
+        observer.disconnect();
+        try {
+          refresh();
+        } catch (error) {
+
+        }
+        observer.observe(timeElement, { attributes: true, subtree: true });
+      }
+    }
+
+  };
+
+  const observer = new MutationObserver(callback);
+
+  observer.observe(timeElement, { attributes: true, subtree: true });
+}
