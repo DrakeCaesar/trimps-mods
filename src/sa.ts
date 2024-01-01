@@ -67,7 +67,11 @@ export async function observeResistancesElement(): Promise<void> {
 
           lastPreset = spireAssault(lastPreset);
         } catch (error) {
+          try {
+            (document.querySelector("#autoBattleA") as HTMLElement).click();
+          } catch (error) {
 
+          }
         }
         observer.observe(resistanceElement, { attributes: true, subtree: true });
       }
