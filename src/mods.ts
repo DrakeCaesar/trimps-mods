@@ -1,12 +1,14 @@
 import { BubléChallenge } from "./bubble";
-import { hideTooltip } from "./hideTooltip";
 import { observeResistancesElement } from "./sa";
 import { moveSettings } from "./settings";
 import { zoomListener } from "./zoom";
 
+
+
 var script = document.createElement("script");
 script.id = "AutoTrimps-Zek";
-script.src = "https://Zorn192.github.io/AutoTrimps/AutoTrimps2.js";
+// script.src = "https://Zorn192.github.io/AutoTrimps/AutoTrimps2.js";
+script.src = "http://localhost/AutoTrimps2.js";
 script.setAttribute("crossorigin", "anonymous");
 document.head.appendChild(script);
 
@@ -25,8 +27,9 @@ const buble: boolean = false;
 if (buble)
   BubléChallenge();
 
-hideTooltip();
 observeResistancesElement();
 // observeTime();
 zoomListener();
 
+
+// breed();

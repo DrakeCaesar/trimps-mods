@@ -3702,3 +3702,60 @@ ul.tab li a:hover {
 .cellColorBeaten {
   background: #48bb78 !important;
 }
+
+#autoItemsDiv {
+  display: inline;
+}
+
+/* #resourceColumn,
+#miscColumn {
+  height: 280px;
+}
+
+#buyCol {
+  margin-top: -50px;
+}
+
+#outerBuyContainer {
+  margin-bottom: 50px;
+} */
+
+#grid > ul,
+#mapGrid > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+#grid > ul > li,
+#mapGrid > ul > li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+#grid > ul > li > span,
+#mapGrid > ul > li > span {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.battleCell.TrimpmasSnow.mapPumpkimp,
+.badNameMutation.TrimpmasSnow.mapPumpkimp {
+  background: linear-gradient(
+    45deg,
+    rgb(225 193 77 / 80%),
+    rgb(225 135 95 / 80%)
+  );
+}
+
+.battleCell.TrimpmasSnow.Pumpkimp,
+.badNameMutation.TrimpmasSnow.Pumpkimp {
+  background: linear-gradient(
+    45deg,
+    rgb(225 193 77 / 80%),
+    rgb(225 135 95 / 80%) rain
+  );
+}

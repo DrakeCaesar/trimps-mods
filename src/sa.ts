@@ -79,11 +79,11 @@ export async function observeResistancesElement(): Promise<void> {
 
   observer.observe(resistanceElement, { attributes: true, subtree: true });
 
-  while (true) {
-    resistanceElement = document.querySelector('#tooltipDiv');
-    (document.querySelector("#autoBattleA") as HTMLElement).click();
-    await new Promise(r => setTimeout(r, 1000));
-  }
+  // while (true) {
+  //   resistanceElement = document.querySelector('#tooltipDiv');
+  //   (document.querySelector("#autoBattleA") as HTMLElement).click();
+  //   await new Promise(r => setTimeout(r, 1000));
+  // }
 }
 
 export function refresh() {
